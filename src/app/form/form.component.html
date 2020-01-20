@@ -1,0 +1,21 @@
+<form [formGroup]="studentForm" (ngSubmit)="formSubmit(studentForm.value)">
+    <input type="text" formControlName="name" placeholder="name" />
+    <span *ngIf="studentForm.controls.name.dirty && studentForm.controls.name.errors?.required">
+      Name is required.
+    </span>
+    <input type="number" formControlName="age" placeholder="age" />
+    <span *ngIf="studentForm.controls.age.dirty && studentForm.controls.age.errors?.required">
+      Age is required.
+    </span>
+    <span *ngIf="studentForm.controls.age.dirty && studentForm.controls.age.errors?.max">
+      Age should be minor than 30.
+    </span>
+    <span *ngIf="studentForm.controls.age.dirty && studentForm.controls.age.errors?.min">
+      Age should be greater than 10.
+    </span>
+    <input type="text" formControlName="identifier" placeholder="identifier" />
+    <span *ngIf="studentForm.controls.identifier.dirty && studentForm.controls.identifier.errors?.required">
+      Identifier is required.
+    </span>
+    <button class="btn btn-primary">submit</button>
+  </form>

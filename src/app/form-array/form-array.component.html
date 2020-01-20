@@ -1,0 +1,13 @@
+<p>form-array works!</p>
+<form [formGroup]="studentForm">
+    <div formArrayName="students" *ngFor="let student of students.controls; let i = index;">
+      <div [formGroupName]="i">
+        <input type="text" formControlName="name" placeholder="name" />
+        <input type="number" formControlName="age" placeholder="age" />
+        <input type="text" formControlName="identifier" placeholder="identifier" />
+        <button (click)="addStudent()">add </button>
+        <button (click)="removeStudent()">remove </button>
+        <button (click)="removeAllStudents()">remove all </button>
+      </div>
+    </div>
+  </form>
